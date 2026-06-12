@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-PT" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +83,10 @@
 
     <div class="noise-overlay"></div>
 
-    <div id="youtube-audio-player" style="position: absolute; top: -9999px; left: -9999px; width: 0; height: 0; overflow: hidden;"></div>
+    <!-- PLAYER DE ÁUDIO DO GITHUB (ficheiro musica.mp3) -->
+    <audio id="local-audio" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
 
     <button id="music-btn" class="music-btn fixed bottom-6 right-6 md:bottom-10 md:right-10 z-50 p-4 rounded-full glass-card text-[#e2a899] transition-transform duration-300 hover:scale-110 flex items-center justify-center group" onclick="toggleMusic()">
         <i data-lucide="play" id="music-icon" class="w-5 h-5 md:w-6 md:h-6 fill-current"></i>
@@ -135,7 +138,7 @@
                     Aquele instante em que o universo conspirou. Não foi sorte, foi roteiro. O primeiro olhar que provou que o destino tem um timing perfeito.
                 </p>
                 <div class="glass-card p-2 rounded-2xl overflow-hidden transform transition-transform duration-500 hover:-translate-y-2 relative group-hover:shadow-[0_0_30px_rgba(226,168,153,0.15)]">
-                    <img src="1.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23141416\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23e2a899\' text-anchor=\'middle\'>FOTO 1 AUSENTE</text></svg>'" alt="O Início" class="w-full h-56 md:h-72 object-cover rounded-xl filter grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+                    <img src="1.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23141416\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23e2a899\' text-anchor=\'middle\'>FOTO 1</text></svg>'" alt="O Início" class="w-full h-56 md:h-72 object-cover rounded-xl filter grayscale-[30%] hover:grayscale-0 transition-all duration-700">
                 </div>
             </div>
         </div>
@@ -151,7 +154,7 @@
                     O frio na barriga do primeiro encontro. Aquele sorriso que desarmou qualquer defesa e me fez perceber que a minha melhor versão era do seu lado.
                 </p>
                 <div class="glass-card p-2 rounded-2xl overflow-hidden transform transition-transform duration-500 hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(226,168,153,0.15)]">
-                    <img src="2.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23141416\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23e2a899\' text-anchor=\'middle\'>FOTO 2 AUSENTE</text></svg>'" alt="Primeiro Encontro" class="w-full h-56 md:h-72 object-cover rounded-xl filter grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+                    <img src="2.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23141416\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23e2a899\' text-anchor=\'middle\'>FOTO 2</text></svg>'" alt="Primeiro Encontro" class="w-full h-56 md:h-72 object-cover rounded-xl filter grayscale-[30%] hover:grayscale-0 transition-all duration-700">
                 </div>
             </div>
         </div>
@@ -192,7 +195,7 @@
                     De todos os projetos da minha vida, nós somos o meu favorito. Brindemos ao que construímos até aqui, e ao que ainda vamos conquistar. Te amo.
                 </p>
                 <div class="glass-card p-2 rounded-2xl overflow-hidden relative group-hover:shadow-[0_0_40px_rgba(226,168,153,0.2)]">
-                    <img src="5.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23141416\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23e2a899\' text-anchor=\'middle\'>FOTO 5 AUSENTE</text></svg>'" class="w-full h-64 md:h-80 object-cover rounded-xl hover:scale-105 transition-transform duration-700">
+                    <img src="5.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'400\' height=\'300\' fill=\'%23141416\'/><text x=\'50%\' y=\'50%\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23e2a899\' text-anchor=\'middle\'>FOTO 5</text></svg>'" class="w-full h-64 md:h-80 object-cover rounded-xl hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
         </div>
@@ -243,37 +246,25 @@
         Desenvolvido com exclusividade para Bruna Eloisa.
     </footer>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
-
     <script>
         lucide.createIcons();
 
-        // ID exato que você enviou: ICS6uKC93w0
-        const YOUTUBE_VIDEO_ID = 'ICS6uKC93w0'; 
-
-        let player;
+        // Controla o Áudio Local (musica.mp3)
+        const audio = document.getElementById('local-audio');
         let isPlaying = false;
         const musicBtn = document.getElementById('music-btn');
         const musicIcon = document.getElementById('music-icon');
 
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtube-audio-player', {
-                height: '0',
-                width: '0',
-                videoId: YOUTUBE_VIDEO_ID,
-                playerVars: { 'autoplay': 0, 'controls': 0, 'loop': 1, 'playlist': YOUTUBE_VIDEO_ID }
-            });
-        }
-
         function toggleMusic() {
-            if (!player || typeof player.playVideo !== 'function') return;
             if (isPlaying) {
-                player.pauseVideo();
+                audio.pause();
                 musicBtn.classList.remove('playing');
                 musicBtn.classList.replace('text-white', 'text-[#e2a899]');
                 musicIcon.setAttribute('data-lucide', 'play');
             } else {
-                player.playVideo();
+                audio.play().catch(error => {
+                    console.log("Erro ao reproduzir a música.", error);
+                });
                 musicBtn.classList.add('playing');
                 musicBtn.classList.replace('text-[#e2a899]', 'text-white');
                 musicIcon.setAttribute('data-lucide', 'pause');
